@@ -1,0 +1,15 @@
+---
+  name: "create_update"
+  runner_type: "python-script"
+  description: "Share something on buffer"
+  enabled: true
+  entry_point: "create_update.py"
+  parameters:
+    title:
+      type: "string"
+      description: "Title of the thing you're sharing"
+      required: true
+    url:
+      type: "string"
+      description: "URL of the thing you're sharing"
+      required: true

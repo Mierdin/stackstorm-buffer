@@ -1,0 +1,12 @@
+---
+access_token:
+  type: "string"
+  secret: true
+  description: "Access token retrieved via OAuth 3-step process"
+  required: true
+profiles:
+  description: "List of buffer profile IDs to post to"
+  type: "array"
+  minItems: 1
+  items:
+    type: "string

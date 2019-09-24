@@ -1,0 +1,14 @@
+---
+ref: buffer
+name : buffer
+description: Work with Buffer
+keywords:
+  - buffer
+  - social media
+  - social networks
+version: 0.1.0
+python_versions:
+  - "2"
+  - "3"
+author : StackStorm, Inc.
+email : info@stackstorm.com
