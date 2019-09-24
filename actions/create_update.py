@@ -24,7 +24,7 @@ class CreateUpdateAction(Action):
 
         if resp.status_code == 200:
             return (True, {
-                "post_id": resp.json().get['updates'],
+                "updates": resp.json()['updates'],
                 "status_code": resp.status_code
             })
         else:

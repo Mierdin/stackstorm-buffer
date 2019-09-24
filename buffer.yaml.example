@@ -1,4 +1,4 @@
 ---
-access_token = "xxxxxx"
+access_token: "xxxxxx"
 profile_ids:
 - "xxxxxxxxxxxxxxxx"
