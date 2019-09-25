@@ -20,12 +20,10 @@ class CreateUpdateAction(Action):
         }
 
         if post_image:
-            data["media"] = {
-                "photo": post_image,
-                "picture": post_image,
-                "title": title,
-                "link": url
-            }
+            data["media[photo]"] = post_image
+            data["media[link]"] = url
+            data["media[picture]"] = post_image
+            data["media[title]"] = title
 
         resp = requests.post("https://api.bufferapp.com/1/updates/create.json", headers = {
             "Authorization": "Bearer %s" % access_token,
@@ -35,7 +33,8 @@ class CreateUpdateAction(Action):
         if resp.status_code == 200:
             return (True, {
                 "updates": resp.json()['updates'],
-                "status_code": resp.status_code
+                "status_code": resp.status_code,
+                "post_image": post_image
             })
         else:
             return (False, {
