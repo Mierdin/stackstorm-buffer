@@ -13,3 +13,7 @@
       type: "string"
       description: "URL of the thing you're sharing"
       required: true
+    post_image:
+      type: "string"
+      description: "URL of the image for the thing you're sharing"
+      required: false

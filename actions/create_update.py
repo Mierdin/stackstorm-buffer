@@ -7,20 +7,30 @@ __all__ = [
 
 class CreateUpdateAction(Action):
 
-    def run(self, title, url):
+    def run(self, title, url, post_image=None):
 
         access_token = self.config.get('access_token')
         profile_ids = self.config.get('profile_ids')
 
-        resp = requests.post("https://api.bufferapp.com/1/updates/create.json", headers = {
-            "Authorization": "Bearer %s" % access_token,
-            "Content-Type": "application/x-www-form-urlencoded"
-        }, data={
+        data = {
             "profile_ids": profile_ids,
             "text": "%s %s" % (title, url),
             "shorten": False,
-            "now": True
-        })
+            "now": True,
+        }
+
+        if post_image:
+            data["media"] = {
+                "photo": post_image,
+                "picture": post_image,
+                "title": title,
+                "link": url
+            }
+
+        resp = requests.post("https://api.bufferapp.com/1/updates/create.json", headers = {
+            "Authorization": "Bearer %s" % access_token,
+            "Content-Type": "application/x-www-form-urlencoded"
+        }, data)
 
         if resp.status_code == 200:
             return (True, {
