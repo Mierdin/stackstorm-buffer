@@ -30,7 +30,7 @@ class CreateUpdateAction(Action):
         resp = requests.post("https://api.bufferapp.com/1/updates/create.json", headers = {
             "Authorization": "Bearer %s" % access_token,
             "Content-Type": "application/x-www-form-urlencoded"
-        }, data)
+        }, data=data)
 
         if resp.status_code == 200:
             return (True, {
