@@ -7,14 +7,14 @@ __all__ = [
 
 class CreateUpdateAction(Action):
 
-    def run(self, title, url, post_image=None):
+    def run(self, post_prefix, title, url, post_image=None):
 
         access_token = self.config.get('access_token')
         profile_ids = self.config.get('profile_ids')
 
         data = {
             "profile_ids": profile_ids,
-            "text": "%s %s" % (title, url),
+            "text": "%s %s %s" % (post_prefix, title, url),
             "shorten": False,
             "now": True,
         }

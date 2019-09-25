@@ -5,6 +5,10 @@
   enabled: true
   entry_point: "create_update.py"
   parameters:
+    post_prefix:
+      type: "string"
+      description: "Post prefix for the thing you're sharing"
+      required: true
     title:
       type: "string"
       description: "Title of the thing you're sharing"
