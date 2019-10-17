@@ -13,7 +13,7 @@ class CreateUpdateAction(Action):
         profile_ids = self.config.get('profile_ids')
 
         data = {
-            "profile_ids": profile_ids,
+            "profile_ids[]": profile_ids,
             "text": "%s %s %s" % (post_prefix, title, url),
             "shorten": False,
             "now": True,
@@ -21,9 +21,6 @@ class CreateUpdateAction(Action):
 
         if post_image:
             data["media[photo]"] = post_image
-            data["media[link]"] = url
-            data["media[picture]"] = post_image
-            data["media[title]"] = title
 
         resp = requests.post("https://api.bufferapp.com/1/updates/create.json", headers = {
             "Authorization": "Bearer %s" % access_token,
